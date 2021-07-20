@@ -56,7 +56,7 @@ router.patch('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
     try {
         const _id=req.params.id
-        const results = await users.deleteOne({_id})
+        const results = await users.findByIdAndDelete({_id}) //deleteMany //deleteOne
         console.log(`Data ID :- ${_id} Deleted Successfully`)
         res.json(results)
     } catch (err) {
